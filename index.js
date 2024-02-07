@@ -19,7 +19,7 @@ function validateParams(req, res, next) {
 
   // Check if id is present and is a valid integer
   if (!id || isNaN(parseInt(id))) {
-    return res.status(400).json({ error: 'Invalid id parameter' });
+    return res.status(400).json({ error: 'Invalid LGA id parameter' });
   }
 
   next();
