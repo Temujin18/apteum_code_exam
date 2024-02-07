@@ -34,11 +34,7 @@ app.get("/lgas/:id?", validateParams, async (req, res) => {
     let result;
     if (id) {
       const query = {
-        text: `SELECT 
-        gid, pfi, lga_code, lga_name, gaz_lga, gazregn, abslgacode, pfi_cr, ufi, ufi_cr, ufi_old, 
-        ST_AsGeoJSON(geom) AS geom 
-        FROM public.vic_lga 
-        WHERE gid = $1;`,
+        text: "SELECT *, ST_AsGeoJSON(geom) AS geom FROM public.vic_lga WHERE gid = $1",
         values: [id],
       };
 
